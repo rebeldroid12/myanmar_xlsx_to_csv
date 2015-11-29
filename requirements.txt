@@ -1,0 +1,5 @@
+et-xmlfile==1.0.0
+jdcal==1.0
+openpyxl==2.3.0
+wheel==0.24.0
+xlsx2csv==0.7.2
