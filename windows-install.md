@@ -93,5 +93,11 @@ Go to your command line and run the Python file for that .xlsx file:
 ```
 python myanmar_xlsx_to_csv.py C:\Users\rebeldroid12\Downloads\data\budget-data.xlsx
 ```
-It will print out 'All done!' when the .csv file is created. Enjoy the clean data :)
+It will print out 'All done!' when the .csv file is created and it will create it in your current directory.
+-Since we ran the python script in the directory where the python script is, it gets created in that directory.
+
+![clean csv](./windows-resources/clean-csv.png)
+
+ Enjoy the clean data :)
+
 
