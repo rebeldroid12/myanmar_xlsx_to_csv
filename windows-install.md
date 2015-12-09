@@ -26,10 +26,11 @@ Go to https://www.python.org/downloads/ and download python2.7.11 or the latest 
 
 Make sure to add Python to your path.
 - Look up your environment variables 
+
 ![windows env vars](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/environment_vars.PNG)
 
 - Edit the the User Path variable (at the top)
-- Add the path ';C:\Python27'
+- Add the path `;C:\Python27`
 
 ![windows path var](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/user_path.PNG)
 
@@ -41,17 +42,17 @@ All Python installations of Python 2.7.9+ come with pip so no need to install ag
 
 (3): Get the code
 
-Download the zip: https://github.com/rebeldroid12/myanmar_xlsx_to_csv
+Download the zip from [https://github.com/rebeldroid12/myanmar_xlsx_to_csv](https://github.com/rebeldroid12/myanmar_xlsx_to_csv)
 
 ![download zip](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/download_zip.PNG)
 
 Extract the zip file and remember where the folder will live (your directory path)
 
-*One way to find out what directory you files live in is to use the Windows Explorer: *
+*One way to find out what directory you files live in is to use the Windows Explorer:*
 
 ![windows path dir](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/path_dir.PNG)
 
-Here my directory path is: C:\Users\rebeldroid12\Downloads\myanmar_xlsx_to_csv-master\myanmar_xlsx_to_csv-master
+Here my directory path is: `C:\Users\rebeldroid12\Downloads\myanmar_xlsx_to_csv-master\myanmar_xlsx_to_csv-master`
 
 
 (4): Install project requirements
@@ -78,13 +79,14 @@ pip install -r requirements.txt
 
 ![windows run req](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/run_requirements.PNG)
 
-(5): Running the program. 
--Once you have opened the command line and navigated to the `myanmar_xlsx_to_csv` directory in powershell
--Locate the xlsx you would like to run and grab the path for it. 
+(5): Running the program.
+
+- Once you have opened the command line and navigated to the `myanmar_xlsx_to_csv` directory in powershell
+- Locate the xlsx you would like to run and grab the path for it. 
 
 ![data xlsx](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/budget-data.PNG)
 
-*i.e. `C:\Users\rebeldroid12\Downloads\data\budget-data.xlsx`. *
+*i.e. `C:\Users\rebeldroid12\Downloads\data\budget-data.xlsx`*
 
 Go to your command line and run the Python file for that .xlsx file:
 
@@ -94,10 +96,9 @@ Go to your command line and run the Python file for that .xlsx file:
 python myanmar_xlsx_to_csv.py C:\Users\rebeldroid12\Downloads\data\budget-data.xlsx
 ```
 It will print out 'All done!' when the .csv file is created and it will create it in your current directory.
--Since we ran the python script in the directory where the python script is, it gets created in that directory.
 
-![clean csv](./windows-resources/clean-csv.png)
+- Since we ran the python script in the directory where the python script is, it gets created in that directory.
+
+![clean csv](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/clean_csv.PNG)
 
  Enjoy the clean data :)
-
-
