@@ -26,12 +26,12 @@ Go to https://www.python.org/downloads/ and download python2.7.11 or the latest 
 
 Make sure to add Python to your path.
 - Look up your environment variables 
-![windows env vars](./windows-resources/environment_vars.png)
+![windows env vars](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/environment_vars.PNG)
 
 - Edit the the User Path variable (at the top)
 - Add the path ';C:\Python27'
 
-![windows path var](./windows-resources/user_path.png)
+![windows path var](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/user_path.PNG)
 
 *semicolons separate the different packages/programs.*
 
@@ -43,12 +43,13 @@ All Python installations of Python 2.7.9+ come with pip so no need to install ag
 
 Download the zip: https://github.com/rebeldroid12/myanmar_xlsx_to_csv
 
-![download zip](./windows-resources/download_zip.png)
+![download zip](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/download_zip.PNG)
 
 Extract the zip file and remember where the folder will live (your directory path)
+
 *One way to find out what directory you files live in is to use the Windows Explorer: *
 
-![windows path dir](./windows-resources/path_dir.png)
+![windows path dir](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/path_dir.PNG)
 
 Here my directory path is: C:\Users\rebeldroid12\Downloads\myanmar_xlsx_to_csv-master\myanmar_xlsx_to_csv-master
 
@@ -63,7 +64,7 @@ i.e. if you downloaded and extracted it in your downloads folder then *change di
 ```
 cd C:\Users\rebeldroid12\Downloads\myanmar_xlsx_to_csv-master\myanmar_xlsx_to_csv-master
 ```
-![windows pshell dir](./windows-resources/in_dir_path.png)
+![windows pshell dir](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/in_dir_path.PNG)
 
 
 *you can do `ls` to look at what is in your directory. Here you can see the main Python script which is called myanmar_xlsx_to_csv.py*
@@ -75,13 +76,13 @@ Run the requirements.txt file
 pip install -r requirements.txt
 ```
 
-![windows run req](./windows-resources/run_requirements.png)
+![windows run req](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/run_requirements.PNG)
 
 (5): Running the program. 
 -Once you have opened the command line and navigated to the `myanmar_xlsx_to_csv` directory in powershell
 -Locate the xlsx you would like to run and grab the path for it. 
 
-![data xlsx](./windows-resources/budget-data.png)
+![data xlsx](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/budget-data.PNG)
 
 *i.e. `C:\Users\rebeldroid12\Downloads\data\budget-data.xlsx`. *
 
