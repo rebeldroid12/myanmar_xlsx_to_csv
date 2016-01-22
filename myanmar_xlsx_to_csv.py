@@ -238,7 +238,7 @@ def grab_info(ws, section_list):
     return budgets, sources, values
     
     
-def compose_data(region, flows, entities, budgets, sources, values):
+def compose_data(region, flows, entities, budgets, sources, values, yr, src):
     """Create the rows to be pushed to the csv file in the order of region, flow, entity, budget, source, value
     Returns each row as a list inside a list
     """
@@ -258,6 +258,8 @@ def compose_data(region, flows, entities, budgets, sources, values):
     
     for lst, val in zip_data:
         lst.append(val)
+        lst.append(yr)
+        lst.append(src)
         full_data_list.append(lst)
     
     return full_data_list
@@ -284,16 +286,22 @@ def get_worksheet_data(worksheet):
     return regions, flows, entities, sections, budgets, sources, values
 
 
-def map_xlsx_to_csv(clean_data):
+def map_xlsx_to_csv(clean_data, yr, src):
     """Push rows of data to a file called myanmar_clean_data.csv  """
     with open('myanmar_clean_data.csv', 'wb') as csvfile:
         write = csv.writer(csvfile, delimiter=',')
+        #region, flow, entity, budget, source, values, yr, src
+        write.writerow(['Region','Flow','Entity','Budget','Sources', 'Values', 'Year', 'Source Contents'])
+        
         for row in clean_data:
+            #print row
             write.writerow(row)
 
 
-def generate_csv_files(xlsx):
+def generate_csv_files(xlsx, yr, src):
     """Putting all functions together and iterating through all worksheets"""
+    
+
     csv_contents = []
 
     #open xlsx file
@@ -304,23 +312,33 @@ def generate_csv_files(xlsx):
     
     for worksheet in worksheet_list:
         region, flow, entity, section, budget, source, values = get_worksheet_data(worksheet)
-        clean_data = clean_up(compose_data(region, flow, entity, budget, source, values))
+        clean_data = clean_up(compose_data(region, flow, entity, budget, source, values, yr, src))
         csv_contents += clean_data
 
     #return csv_contents
-    map_xlsx_to_csv(csv_contents)
+    map_xlsx_to_csv(csv_contents, yr, src)
 
 if __name__ == '__main__':
     filename = None
     error = 'No file name provided. Please specify a .xlsx file.'
     if len(sys.argv) > 1:
         filename = sys.argv[1]
+
+        year = sys.argv[2]
+
+        source = sys.argv[3]
+
         if '.xlsx' not in filename:
             error = 'The argument "%s" is not a .xlsx file. Please provide one.' % str(filename)
             filename = None
 
     if filename:
-        generate_csv_files(filename)
-        print 'All done!'
+        generate_csv_files(filename, year, source)
+        print '''
+Data outputted to file "myanmar_clean_data.csv" in the directory/folder the script was run. 
+
+Created by Loren Velasquez as part of Statistics Without Borders. Code is open sourced and found at https://github.com/rebeldroid12/myanmar_xlsx_to_csv
+
+'''
     else:
         print error
