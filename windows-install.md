@@ -11,10 +11,10 @@
 4. Install project requirements
 5. Run the program!
 	- open up the command line
-	- navigate to the script `myanmar_xlsx_to_csv.py`
+	- navigate to the script `myanmar_xlsx_to_csv_user_input.py`
 	- find the path to desired .xlsx file
 	- Run Python script with desired .xlsx file
-	- Look for `myanmar_clean_data.csv` in your current directory
+	- Look for `YYYY-YY_myanmar_clean_data.csv` in your `\clean_data\` directory
 	- Gaze at the clean data :)
 
 
@@ -68,7 +68,7 @@ cd C:\Users\rebeldroid12\Downloads\myanmar_xlsx_to_csv-master\myanmar_xlsx_to_cs
 ![windows pshell dir](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/in_dir_path.PNG)
 
 
-*you can do `ls` to look at what is in your directory. Here you can see the main Python script which is called myanmar_xlsx_to_csv.py*
+*you can do `ls` to look at what is in your directory. Here you can see the main Python script which is called myanmar_xlsx_to_csv_user_input.py*
 
 
 Run the requirements.txt file
@@ -93,11 +93,19 @@ Go to your command line and run the Python file for that .xlsx file:
 *You should be in the directory `myanmar_xlsx_to_csv-master` or know the path to the script to be able to call it*
 
 ```
-python myanmar_xlsx_to_csv.py C:\Users\rebeldroid12\Downloads\data\budget-data.xlsx
+python myanmar_xlsx_to_csv_user_input.py C:\Users\rebeldroid12\Downloads\data\budget-data.xlsx
 ```
-It will print out 'All done!' when the .csv file is created and it will create it in your current directory.
+It will print out: 
 
-- Since we ran the python script in the directory where the python script is, it gets created in that directory.
+```
+Data can be found in *YYYY-YY*_myanmar_clean_data.csv  
+Created by Loren Velasquez as part of Statistics Without Borders. 
+Code is open sourced and found at https://github.com/rebeldroid12/myanmar_xlsx_to_csv
+```
+
+And it will create it in `clean_data` directory
+
+- Since we ran the python script in the directory where the python script is, it will create the `clean_data` and the file in that directory.
 
 ![clean csv](https://github.com/rebeldroid12/myanmar_xlsx_to_csv/blob/master/windows-resources/clean_csv.PNG)
 
