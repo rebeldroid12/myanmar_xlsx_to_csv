@@ -1,6 +1,7 @@
 from openpyxl import Workbook
 from openpyxl import load_workbook
 import csv
+import os
 #import sys
 
 def get_workbook(xlsx):
@@ -288,7 +289,15 @@ def get_worksheet_data(worksheet):
 
 def map_xlsx_to_csv(clean_data, yr, src):
     """Push rows of data to a file called myanmar_clean_data.csv  """
-    with open('myanmar_clean_data.csv', 'wb') as csvfile:
+
+    #current directory
+    my_cwd = os.getcwd()
+
+    #check if the data folder exists
+    if not os.path.exists(os.path.join(my_cwd, 'clean_data')):
+        os.makedirs(os.path.join(my_cwd, 'clean_data'))
+
+    with open(os.path.join(my_cwd, 'clean_data','{}_myanmar_clean_data.csv'.format(yr)), 'wb') as csvfile:
         write = csv.writer(csvfile, delimiter=',')
         #region, flow, entity, budget, source, values, yr, src
         write.writerow(['Region','Flow','Entity','Budget','Sources', 'Values', 'Year', 'Source Contents'])
@@ -319,40 +328,29 @@ def generate_csv_files(xlsx, yr, src):
     map_xlsx_to_csv(csv_contents, yr, src)
 
 
-filename = raw_input('Please write the XLSX file you wish to export to a csv. Please write the file exactly. Use lowercase and uppercase when needed: ')
-while 'xlsx' not in filename:
-    print 'Incorrect file, please give an .xlsx file'
+def run_xlsx_to_csv_py():
+
     filename = raw_input('Please write the XLSX file you wish to export to a csv. Please write the file exactly. Use lowercase and uppercase when needed: ')
+    while 'xlsx' not in filename:
+        print 'Incorrect file, please give an .xlsx file'
+        filename = raw_input('Please write the XLSX file you wish to export to a csv. Please write the file exactly. Use lowercase and uppercase when needed: ')
 
-year = raw_input('What year is the data for? Please submit in a YYYY-YY format (e.g. 2013-14): ')
-while len(year) != 7:
-    print 'You did not supply a year. Please supply a year.'
-    year = raw_input('WWhat year is the data for? Please submit in a YYYY-YY format (e.g. 2013-14): ')
+    year = raw_input('What year is the data for? Please submit in a YYYY-YY format (e.g. 2013-14): ')
+    while len(year) != 7:
+        print 'You did not supply a year. Please supply a year.'
+        year = raw_input('WWhat year is the data for? Please submit in a YYYY-YY format (e.g. 2013-14): ')
 
-source = raw_input('What is the source? ')
-while len(source) < 1:
-    print 'You did not supply a source. Please supply a source'
     source = raw_input('What is the source? ')
-# if __name__ == '__main__':
-#     filename = None
-#     error = 'No file name provided. Please specify a .xlsx file.'
-#     if len(sys.argv) > 1:
-#         filename = sys.argv[1]
+    while len(source) < 1:
+        print 'You did not supply a source. Please supply a source'
+        source = raw_input('What is the source? ')
+    generate_csv_files(filename, year, source)
+    print '''
 
-#         year = sys.argv[2]
+    Data can be found in {}_myanmar_clean_data.csv  
 
-#         source = sys.argv[3]
+    Created by Loren Velasquez as part of Statistics Without Borders. Code is open sourced and found at https://github.com/rebeldroid12/myanmar_xlsx_to_csv
 
-#         if '.xlsx' not in filename:
-#             error = 'The argument "%s" is not a .xlsx file. Please provide one.' % str(filename)
-#             filename = None
+    '''.format(os.path.join(os.getcwd(), 'clean_data',year))
 
-#     if filename:
-generate_csv_files(filename, year, source)
-print '''
-
-Data outputted to file "myanmar_clean_data.csv" in the directory/folder the script was run. 
-
-Created by Loren Velasquez as part of Statistics Without Borders. Code is open sourced and found at https://github.com/rebeldroid12/myanmar_xlsx_to_csv
-
-'''
+run_xlsx_to_csv_py()
